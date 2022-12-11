@@ -1,0 +1,109 @@
+@import "./styles/variables.scss";
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1a202c;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  top: 300px;
+  position: auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: $primary-font-size;
+  padding-top: 60px;
+}
+
+// main section {
+//   padding-bottom: 40px;
+// }
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+  margin-top: 3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.profile-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 3px solid $secondary-colour;
+  border-radius: 50%;
+  transition-duration: 400ms;
+}
+
+.profile-icon:hover {
+  filter: grayscale(100%);
+}
+
+#spacing {
+  height: 64px;
+}
+
+h4 {
+  color: $secondary-colour;
+  text-align: center;
+  margin-top: 0;
+
+  a {
+    color: $star;
+    transition-duration: 300ms;
+  }
+
+  a:hover {
+    text-shadow: 2px 2px #ff0000;
+  }
+}
+
+.error {
+  text-align: center;
+  color: rgb(187, 63, 63);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.fa-circle-xmark {
+  transition-duration: 200ms;
+}
+
+.fa-circle-xmark:hover {
+  color: $trash;
+  cursor: pointer;
+}

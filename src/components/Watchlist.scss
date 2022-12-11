@@ -1,0 +1,24 @@
+@import "../styles/variables.scss";
+
+.watchlist-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    display: flex;
+    align-self: center;
+    color: $secondary-colour;
+  }
+
+  .watchlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .watchlist-item {
+      margin-top: 1rem;
+    }
+  }
+}

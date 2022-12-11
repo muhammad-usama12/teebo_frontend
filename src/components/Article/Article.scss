@@ -1,0 +1,229 @@
+@import "../../styles/variables.scss";
+
+article {
+  background-color: $tertiary-colour;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  width: 43vw;
+  padding: 2rem 2rem 2rem 2rem;
+  margin-top: 0;
+  margin-bottom: 4rem;
+  box-shadow: 10px 10px $article-shadow;
+
+  .timestamp {
+    font-family: monospace;
+    color: $article-shadow;
+  }
+
+  a {
+    color: $article-shadow;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .screen-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .article-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      .actions {
+        color: $primary-colour;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30px;
+
+        i {
+          margin-top: 0.5rem;
+          transition-duration: 200ms;
+          font-size: 30px;
+        }
+
+        p {
+          font-size: small;
+          font-weight: bold;
+          margin: 0%;
+        }
+
+        .fa-star:hover {
+          color: $star;
+        }
+        .liked {
+          color: $star;
+        }
+        .fa-star:active {
+          text-shadow: 30px -15px $star;
+        }
+
+        .fa-circle-plus:hover {
+          color: $watchlist;
+        }
+        .watchlisted {
+          color: $watchlist;
+        }
+        .fa-circle-plus:active {
+          text-shadow: 30px -15px $watchlist;
+        }
+
+        .fa-comment-dots:hover {
+          color: $comment;
+        }
+        .fa-comment-dots:active {
+          text-shadow: 30px -15px $comment;
+        }
+      }
+    }
+  }
+
+  .screen {
+    background-color: $secondary-colour;
+    width: 100%;
+    text-align: left;
+    margin-right: 1rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      margin: 1rem 2rem 1rem 2rem;
+      font-family: monospace;
+      font-size: xx-large;
+    }
+
+    img {
+      display: flex;
+      max-width: 100%;
+      border-radius: 0 0 30px 30px;
+    }
+  }
+
+  .category-timestamp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 4rem;
+
+    .timestamp {
+      margin-right: 1rem;
+      font-size: large;
+      text-align: right;
+    }
+  }
+
+  .spoiler {
+    filter: blur(10px);
+  }
+
+  .comments-container {
+    h1 {
+      margin-top: 2rem;
+      margin-bottom: 0rem;
+      padding-bottom: 0;
+      font-size: x-large;
+    }
+
+    .comment-item {
+      margin-top: 1rem;
+
+      img {
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      .comment-and-profile-image {
+        display: flex;
+        font-size: large;
+        flex-direction: row;
+
+        .screen {
+          margin-right: 1rem;
+        }
+      }
+
+      .timestamp {
+        font-size: large;
+        margin: 0.3rem 1rem 1rem 1rem;
+      }
+    }
+  }
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    textarea {
+      background-color: $secondary-colour;
+      color: $primary-colour;
+      resize: none;
+      border: 0px;
+      border-radius: 30px;
+      padding: 1rem;
+      font-size: 18px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.profile-article-container {
+  margin-top: 2rem;
+}
+.article-header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin: 1.5em -0.2em -0.5em 1em;
+
+  p {
+    margin-right: 0.5em;
+    font-family: monospace;
+    color: #6f6a6a;
+    margin-bottom: 10px;
+    font-size: large;
+  }
+}
+.comment-header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-size: large;
+
+  p {
+    margin: 0;
+    margin: 0.5em 0.5em 0.5em 1em;
+    font-family: monospace;
+    color: #6f6a6a;
+  }
+}
+
+@media (max-width: 820px) {
+  article {
+    width: 90vw;
+  }
+}

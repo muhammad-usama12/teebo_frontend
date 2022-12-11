@@ -1,0 +1,73 @@
+@import "../styles/variables.scss";
+
+button {
+  font-size: medium;
+  font-weight: 600;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  width: fit-content;
+  min-height: 42px;
+  font-family: var(--font);
+  color: $primary-colour;
+  border: 0px;
+  border-radius: 30px;
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+.MuiButtonBase-root {
+  min-height: 0;
+}
+
+button:active {
+  filter: brightness(50%);
+}
+
+.button--confirm {
+  background-color: $confirm;
+  border-color: $confirm;
+}
+
+.button--cancel {
+  background-color: $cancel;
+  border-color: $cancel;
+}
+
+.button--image {
+  background-color: $image;
+  border-color: $image;
+  margin-left: 1rem;
+}
+
+.button--gif {
+  display: flex;
+  align-items: center;
+  background-color: $gif;
+  border-color: $gif;
+}
+
+.button--trash {
+  height: 3rem;
+  background-color: transparent;
+
+  .fa-trash-can {
+    font-size: 30px;
+    color: $secondary-colour;
+    margin-left: 1rem;
+
+    transition-duration: 200ms;
+  }
+  .fa-trash-can:hover {
+    font-size: 30px;
+    color: $trash;
+  }
+  .fa-trash-can:active {
+    font-size: 50px;
+  }
+}
+
+.button--confirm:hover,
+.button--cancel:hover,
+.button--image:hover,
+.button--gif:hover {
+  color: $secondary-colour;
+}

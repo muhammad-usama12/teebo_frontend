@@ -1,0 +1,47 @@
+@import '../../styles/variables.scss';
+
+.modalContainer {
+  width: 250px;
+  border-radius: 12px;
+  background-color: $secondary-colour;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  margin-left: 0.5rem;
+}
+
+.modalContainer .message-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: $trash;
+  color: $primary-colour;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: $cancel;
+}
