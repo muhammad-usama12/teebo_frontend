@@ -53,10 +53,7 @@ const SignUp = () => {
                 if (data.status) {
                   setError(data.status);
                 } else if (data.loggedIn) {
-                  localStorage.setItem("teeboUser", data.userId);
                   setUser({ ...data });
-                  state.setState((prev) => ({ ...prev, loggedIn: true }));
-                  localStorage.setItem("teeboUser", data.userId);
                   navigate("/");
                 }
               });
