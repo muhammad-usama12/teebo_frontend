@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import { async } from "@firebase/util";
 
 const searchShows = async (query) => {
   const { data } = await axios.get(
@@ -45,16 +42,4 @@ export default function Search() {
       </button>
     </form>
   );
-}
-
-{
-  /* <Autocomplete
-  disablePortal
-  id="combo-box-demo"
-  options={""}
-  isOptionEqualToValue={(option, value) => option.value === value.value}
-  sx={{ width: 300 }}
-  renderInput={(params) => <TextField {...params} label="show" />}
-  onChange={(e) => setSearch(e.target.value)}
-/>; */
 }

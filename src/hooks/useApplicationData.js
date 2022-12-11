@@ -26,7 +26,7 @@ export default function useApplicationData() {
       axios.get("/api/comments"),
       axios.get("/api/users"),
       axios.get("/api/watchlist"),
-      axios.get("/api/like")
+      axios.get("/api/like"),
     ]).then((res) => {
       setState((prev) => ({
         ...prev,
@@ -37,7 +37,7 @@ export default function useApplicationData() {
         comments: res[3].data,
         users: res[4].data,
         watchlist: res[5].data,
-        likes: res[6].data
+        likes: res[6].data,
       }));
     });
   };
@@ -67,7 +67,7 @@ export default function useApplicationData() {
       const response = await axios.post("/api/comments/new", {
         text: text,
         postId: postId,
-        userId: userId
+        userId: userId,
       });
       const comments = [...state.comments];
       comments.push(response.data);
@@ -110,7 +110,7 @@ export default function useApplicationData() {
     axios
       .post(`/api/watchlist/new`, {
         user_id: userId,
-        tvshow_id: tvShowId
+        tvshow_id: tvShowId,
       })
       .then((res) => {
         const watchlist = [...state.watchlist];
@@ -119,7 +119,7 @@ export default function useApplicationData() {
         console.log("update watchlist success");
       })
       .catch((err) => console.log("update watchlist failed", err.message));
-  }
+  };
 
   const deleteFromWatchlist = (tvShowId, userId) => {
     axios
@@ -137,7 +137,9 @@ export default function useApplicationData() {
         setState((prev) => ({ ...prev, watchlist }));
         console.log("delete from watchlist success");
       })
-      .catch((err) => console.log("deleted from watchlist failed", err.message));
+      .catch((err) =>
+        console.log("deleted from watchlist failed", err.message)
+      );
   };
 
   const newShow = async (query) => {
@@ -146,7 +148,7 @@ export default function useApplicationData() {
     );
     const response = await axios.post(`/api/shows/new`, {
       name: data[0].show.name,
-      image_url: data[0].show.image.medium
+      image_url: data[0].show.image.medium,
     });
 
     setState((prev) => ({ ...prev, shows: [...prev.shows, response.data] }));
@@ -208,50 +210,45 @@ export default function useApplicationData() {
   };
 
   const addLike = (post_id, user_id) => {
-
     return axios
       .put(`/api/like/${post_id}/add`, {
-        user_id: user_id
+        user_id: user_id,
       })
       .then((res) => {
-        const likes = [...state.likes]
-        likes.push(res.data)
+        const likes = [...state.likes];
+        likes.push(res.data);
         setState({ ...state, likes });
-        return addLikeCounter(post_id, user_id)
+        return addLikeCounter(post_id, user_id);
       })
       .catch((err) => console.error(err));
   };
 
   const addLikeCounter = (post_id, user_id) => {
-
     return axios
       .put(`/api/like/${post_id}/addCounter`)
       .catch((err) => console.error(err));
   };
 
   const deleteLike = (post_id, user_id) => {
-
     return axios
       .put(`/api/like/${post_id}/delete`, {
-        user_id: user_id
+        user_id: user_id,
       })
       .then((res) => {
-
         const likes = [...state.likes];
-        console.log("before set delete", res)
+        console.log("before set delete", res);
         for (let i = 0; i < likes.length; i++) {
           if (likes[i].id === res.data.id) {
             likes.splice(i, 1);
           }
         }
         setState((prev) => ({ ...prev, likes }));
-        console.log("after set delete", likes)
-        return deleteLikeCounter(post_id, user_id)
+        console.log("after set delete", likes);
+        return deleteLikeCounter(post_id, user_id);
       })
       .catch((err) => console.error(err));
   };
   const deleteLikeCounter = (post_id, user_id) => {
-
     return axios
       .put(`/api/like/${post_id}/deleteCounter`)
       .catch((err) => console.error(err));
