@@ -10,6 +10,7 @@ import Toggle from "../components/Toggle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useApplicationData from "../hooks/useApplicationData";
+import axios from "axios";
 
 export const LoginContext = createContext();
 
@@ -18,7 +19,7 @@ export default function Login() {
   const [user, setUser] = useState({});
   const state = useApplicationData();
   const navigate = useNavigate();
-  
+
   return (
     <>
       <Header />
@@ -30,14 +31,15 @@ export default function Login() {
           onSubmit={(values, actions) => {
             const vals = { ...values };
             actions.resetForm();
-            fetch("/api/auth/login", {
-              method: "POST",
-              credentials: "include",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(vals),
-            })
+            axios
+              .post("/api/auth/login", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(vals),
+              })
               .catch((err) => {
                 return;
               })

@@ -10,6 +10,7 @@ import Toggle from "../components/Toggle";
 import useApplicationData from "../hooks/useApplicationData";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 const SignUp = () => {
   const [user, setUser] = useState({});
@@ -29,14 +30,15 @@ const SignUp = () => {
           onSubmit={(values, actions) => {
             const vals = { ...values };
             actions.resetForm();
-            fetch("api/auth/signup", {
-              method: "POST",
-              credentials: "include",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(vals),
-            })
+            axios
+              .post("api/auth/signup", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(vals),
+              })
               .catch((err) => {
                 return;
               })
